@@ -24,12 +24,12 @@ class RetrievalPolicyController extends controller
             $privacy = Privacy::first();
             $update_Privacy = Privacy::find($privacy->id)->update([
                 'content_ar'=>$request->content_ar,
-                'content_en'=>$request->content_en,
+                'cotent_en'=>$request->cotent_en,
             ]);
         }else{
             $create_Privacy = Privacy::create([
                 'content_ar'=>$request->content_ar,
-                'content_en'=>$request->content_en,
+                'cotent_en'=>$request->cotent_en,
             ]);
             
         }
