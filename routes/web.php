@@ -17,15 +17,10 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
 Route::get('try','FaceDetectionController@faceDetection');
 // start front routing
 Route::get('/signup', 'Auth\SignupController@GetSignup');
-Route::get('/', 'Front\HomeController@index');
-Route::get('/cities/{country_id}', 'Front\HomeController@CitiesByCountry');
-Route::get('/aboutus', 'Front\HomeController@aboutus');
-Route::get('/terms', 'Front\HomeController@terms');
-Route::get('/faq', 'Front\HomeController@faq');
-Route::post('/contactus', 'Front\ContactUsController@contactus');
-Route::get('/policy', 'Front\HomeController@policy');
-Route::get('/category/{name}', 'Front\CategoriesController@ShowCategory');
-Route::get('/product/{name}', 'Front\ProductController@ShowProduct');
+Route::get('/',function ()
+{
+    return view('welcome');
+});
 
 
 Route::group(['middleware' => 'auth'], function () {

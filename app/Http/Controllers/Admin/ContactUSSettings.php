@@ -79,7 +79,7 @@ class ContactUSSettings extends Controller
         }
         
         if($request->has('whatsapp')){
-                ContactInfoWhatsapp::where('contactinfo_id',$get_settings->id)->delete();
+                ContactInfoWhatsapp::where('contactinfo_id',$create_settings->id)->delete();
 
                 foreach ($request->whatsapp as $key => $whatsapp) {
                  if($whatsapp != ''){
