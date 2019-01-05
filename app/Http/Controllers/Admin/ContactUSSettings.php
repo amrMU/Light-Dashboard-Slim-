@@ -4,18 +4,33 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Mapper;
 use App\ContactUsSetting,App\ContactInfoPhone,App\ContactInfoWhatsapp;
+use App\Repositories\SettingsRepositories as Setting;
+use App\Repositories\PhoneSettingsInfoRepositories as Phone;
+use App\Repositories\WhatsappSettingsInfoRepositories as Whatsapp;
+
+use Mapper;
 use Session;
 
 class ContactUSSettings extends Controller
 {
+    protected $setting;
+    protected $phone;
+    protected $whatsapp;
+
+    public function __construct(Setting $setting,Phone $phone,Whatsapp $whatsapp)
+    {
+        $this->setting = $setting;
+        $this->phone = $phone;
+        $this->whatsapp = $whatsapp;
+    }
+
     public function show()
     {
-        $check_settings = ContactUsSetting::count();
+        $check_settings =  $this->setting->all()->count();
 
         if ($check_settings >0) {
-            $info = ContactUsSetting::with(['whatsapp','phone'])->first();
+            $info = $this->setting->with(['whatsapp','phone'])->findByFirst(['*']);
 
             $mape = Mapper::map($info->long,$info->lat, ['eventBeforeLoad' => 'console.log("before load");']);
         }
@@ -27,25 +42,27 @@ class ContactUSSettings extends Controller
     public function create()
     {
 
-        $info = ContactUsSetting::with(['whatsapp','phone'])->first();
+        $info = $this->setting->with(['whatsapp','phone'])->findByFirst(['*']);
 
         return view('admin.contact_us.setting',compact('mape','info'));
     }
 
     public function store(Request $request)
     {
-        $check_settings = ContactUsSetting::count();
+//        dd($this->setting->all()->count());
+
+        $check_settings = $this->setting->all()->count();
         if ($check_settings > 0 ) {
-            $get_settings = ContactUsSetting::first();
-            $update_settings = ContactUsSetting::find($get_settings->id)->update($request->except(['phone','whatsapp']));
-            // dd($get_settings->id);
+            $get_settings = $this->setting->findByFirst(['*']);
+            $update_settings =$this->setting->find($get_settings->id)->update($request->except(['phone','whatsapp']));
+//             dd($get_settings);
 
             if($request->has('phone')){
-                ContactInfoPhone::where('contactinfo_id',$get_settings->id)->delete();
-                foreach ($request->phone as $key => $phone) {
-                    if($phone != ''){
-                        ContactInfoPhone::create([
-                            'phone'=>$phone,
+                $this->phone->deletWhere('contactinfo_id',$get_settings->id);
+                foreach ($request->phone as $key => $phone_info) {
+                    if($phone_info != ''){
+                        $this->phone->create([
+                            'phone'=>$phone_info,
                             'contactinfo_id'=>$get_settings->id
                             ]);
                     }
@@ -53,24 +70,26 @@ class ContactUSSettings extends Controller
 
             }
             if($request->has('whatsapp')){
-                ContactInfoWhatsapp::where('contactinfo_id',$get_settings->id)->delete();
+                $this->whatsapp->deletWhere('contactinfo_id',$get_settings->id);
 
                 foreach ($request->whatsapp as $key => $whatsapp) {
                  if($whatsapp != ''){
-                    ContactInfoWhatsapp::create([
+                     $this->whatsapp->create([
                         'whatsapp'=>$whatsapp,
                         'contactinfo_id'=>$get_settings->id
                         ]);
                 }
             }
         }
+//            dd($this->setting->findByFirst(['*']));
 
-    }else{
+
+        }else{
        
-        $create_settings = ContactUsSetting::create($request->except(['phone','whatsapp']));
+        $create_settings = $this->setting->create($request->except(['phone','whatsapp']));
         if($request->has('phone')){
             foreach ($request->phone as $key => $phone) {
-                ContactInfoPhone::create([
+                $this->phone->create([
                     'phone'=>$phone,
                     'contactinfo_id'=>$create_settings->id
                     ]);
@@ -79,8 +98,7 @@ class ContactUSSettings extends Controller
         }
         
         if($request->has('whatsapp')){
-                ContactInfoWhatsapp::where('contactinfo_id',$create_settings->id)->delete();
-
+            $this->whatsapp->deletWhere('contactinfo_id',$get_settings->id);
                 foreach ($request->whatsapp as $key => $whatsapp) {
                  if($whatsapp != ''){
                     ContactInfoWhatsapp::create([

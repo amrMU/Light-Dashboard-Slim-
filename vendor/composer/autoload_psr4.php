@@ -78,6 +78,7 @@ return array(
     'DeepCopy\\' => array($vendorDir . '/myclabs/deep-copy/src/DeepCopy'),
     'Cron\\' => array($vendorDir . '/mtdowling/cron-expression/src/Cron'),
     'Collective\\Html\\' => array($vendorDir . '/laravelcollective/html/src'),
+    'Bosnadev\\' => array($vendorDir . '/bosnadev/repositories/src/Bosnadev'),
     'App\\' => array($baseDir . '/app'),
     '' => array($vendorDir . '/google/grpc-gcp/src/generated', $vendorDir . '/nesbot/carbon/src'),
 );

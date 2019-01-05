@@ -140,6 +140,10 @@ class ComposerStaticInita14304cabf7f98ea4b20f74022d223ae
             'Cron\\' => 5,
             'Collective\\Html\\' => 16,
         ),
+        'B' => 
+        array (
+            'Bosnadev\\' => 9,
+        ),
         'A' => 
         array (
             'App\\' => 4,
@@ -437,6 +441,10 @@ class ComposerStaticInita14304cabf7f98ea4b20f74022d223ae
         array (
             0 => __DIR__ . '/..' . '/laravelcollective/html/src',
         ),
+        'Bosnadev\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/bosnadev/repositories/src/Bosnadev',
+        ),
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
@@ -516,9 +524,6 @@ class ComposerStaticInita14304cabf7f98ea4b20f74022d223ae
         'ArithmeticError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
         'AssertionError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
         'CreateAboutUsTable' => __DIR__ . '/../..' . '/database/migrations/2017_12_03_125857_create_about_us_table.php',
-        'CreateAlbumTable' => __DIR__ . '/../..' . '/database/migrations/2018_08_06_161321_create_album_table.php',
-        'CreateArtistTable' => __DIR__ . '/../..' . '/database/migrations/2018_08_06_154356_create_artist_table.php',
-        'CreateBookSingerTable' => __DIR__ . '/../..' . '/database/migrations/2018_08_06_170559_create_book_singer_table.php',
         'CreateCategoriesTable' => __DIR__ . '/../..' . '/database/migrations/2018_07_01_120336_create_categories_table.php',
         'CreateCitiesTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_cities_table.php',
         'CreateContactUsSettingsTable' => __DIR__ . '/../..' . '/database/migrations/2017_12_05_062312_create_contact_us_settings_table.php',
@@ -526,16 +531,11 @@ class ComposerStaticInita14304cabf7f98ea4b20f74022d223ae
         'CreateContactWhatsappNumberTable' => __DIR__ . '/../..' . '/database/migrations/2018_08_06_141937_create_contact_whatsapp_number_table.php',
         'CreateCountriesTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_11_000000_create_countries_table.php',
         'CreateFaqTable' => __DIR__ . '/../..' . '/database/migrations/2018_07_03_082732_create_faq_table.php',
-        'CreateFavoritSongsTable' => __DIR__ . '/../..' . '/database/migrations/2018_08_06_165711_create_favorit_songs_table.php',
-        'CreateOrderReplyDetailsTable' => __DIR__ . '/../..' . '/database/migrations/2018_08_06_174624_create__order_reply_details_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreatePhonesContactInfoTable' => __DIR__ . '/../..' . '/database/migrations/2018_08_06_135115_create_phones_contact_info_table.php',
         'CreatePrivacyTable' => __DIR__ . '/../..' . '/database/migrations/2018_08_06_152013_create_privacy_table.php',
-        'CreateReplyOrderBookTable' => __DIR__ . '/../..' . '/database/migrations/2018_08_06_173050_create_reply__order_book_table.php',
         'CreateSlidersTable' => __DIR__ . '/../..' . '/database/migrations/2017_11_15_143627_create_sliders_table.php',
-        'CreateSongsTable' => __DIR__ . '/../..' . '/database/migrations/2018_08_06_162947_create_songs_table.php',
         'CreateTermsTable' => __DIR__ . '/../..' . '/database/migrations/2017_12_03_125856_create_terms_table.php',
-        'CreateTypeEventsTable' => __DIR__ . '/../..' . '/database/migrations/2018_08_06_152733_create_type_events_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'DivisionByZeroError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/DivisionByZeroError.php',

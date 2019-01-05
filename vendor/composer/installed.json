@@ -111,6 +111,68 @@
         ]
     },
     {
+        "name": "bosnadev/repositories",
+        "version": "0.13",
+        "version_normalized": "0.13.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/bosnadev/repository.git",
+            "reference": "3a289a137e27ac6b795852a0d72c509a51b70a26"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/bosnadev/repository/zipball/3a289a137e27ac6b795852a0d72c509a51b70a26",
+            "reference": "3a289a137e27ac6b795852a0d72c509a51b70a26",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/console": "^5.2",
+            "illuminate/database": "^5.2",
+            "illuminate/filesystem": "^5.2",
+            "illuminate/support": "^5.2",
+            "php": ">=5.4.0"
+        },
+        "require-dev": {
+            "mockery/mockery": "dev-master@dev"
+        },
+        "time": "2016-08-19T13:21:55+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "0.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Bosnadev\\": "src/Bosnadev/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Maarten Paauw",
+                "email": "maartenpaauw@gmail.com"
+            },
+            {
+                "name": "Mirza Pasic",
+                "email": "mirza@bosnadev.com"
+            }
+        ],
+        "description": "Laravel Repositories",
+        "homepage": "https://bosnadev.com",
+        "keywords": [
+            "database",
+            "eloquent",
+            "laravel",
+            "repositories",
+            "repository"
+        ]
+    },
+    {
         "name": "container-interop/container-interop",
         "version": "1.2.0",
         "version_normalized": "1.2.0.0",
@@ -643,12 +705,12 @@
         "version_normalized": "1.3.3.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/google/google-auth-library-php.git",
+            "url": "https://github.com/googleapis/google-auth-library-php.git",
             "reference": "af72b3f50420c801dc35cc07b1fa429ae027b847"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/google/google-auth-library-php/zipball/af72b3f50420c801dc35cc07b1fa429ae027b847",
+            "url": "https://api.github.com/repos/googleapis/google-auth-library-php/zipball/af72b3f50420c801dc35cc07b1fa429ae027b847",
             "reference": "af72b3f50420c801dc35cc07b1fa429ae027b847",
             "shasum": ""
         },
@@ -692,12 +754,12 @@
         "version_normalized": "1.23.2.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/GoogleCloudPlatform/google-cloud-php-core.git",
+            "url": "https://github.com/googleapis/google-cloud-php-core.git",
             "reference": "d1b5f59b78c696484c3005d632b64308cbb6f6d2"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/GoogleCloudPlatform/google-cloud-php-core/zipball/d1b5f59b78c696484c3005d632b64308cbb6f6d2",
+            "url": "https://api.github.com/repos/googleapis/google-cloud-php-core/zipball/d1b5f59b78c696484c3005d632b64308cbb6f6d2",
             "reference": "d1b5f59b78c696484c3005d632b64308cbb6f6d2",
             "shasum": ""
         },
@@ -753,12 +815,12 @@
         "version_normalized": "0.15.4.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/GoogleCloudPlatform/google-cloud-php-vision.git",
+            "url": "https://github.com/googleapis/google-cloud-php-vision.git",
             "reference": "7811376e0f4cb71d0cb20afb6ac93f83fff9aa13"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/GoogleCloudPlatform/google-cloud-php-vision/zipball/7811376e0f4cb71d0cb20afb6ac93f83fff9aa13",
+            "url": "https://api.github.com/repos/googleapis/google-cloud-php-vision/zipball/7811376e0f4cb71d0cb20afb6ac93f83fff9aa13",
             "reference": "7811376e0f4cb71d0cb20afb6ac93f83fff9aa13",
             "shasum": ""
         },
