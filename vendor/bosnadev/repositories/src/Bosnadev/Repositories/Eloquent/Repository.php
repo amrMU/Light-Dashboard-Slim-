@@ -170,10 +170,17 @@ abstract class Repository implements RepositoryInterface, CriteriaInterface
     }
 
 
-    public function deletWhere($attribute,$id)
+    /**
+     * @param $attribute =  'column name'
+     * @param $value = 'condition value'
+     * @return mixed
+     */
+    public function deletWhere($attribute,$value)
     {
-        return $this->model->where($attribute, '=', $id)->delete();
+        return $this->model->where($attribute, '=', $value)->delete();
     }
+
+
     /**
      * @param $id
      * @param array $columns
