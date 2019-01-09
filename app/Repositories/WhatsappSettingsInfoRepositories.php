@@ -16,6 +16,50 @@ use Bosnadev\Repositories\Eloquent\Repository;
 class WhatsappSettingsInfoRepositories  extends Repository
 {
 
+		/*
+	**********************
+	*	Get Phone with   *
+	*	 primary info    *
+	*	@param $id 		 *
+	**********************
+	*/
+	public function index($primary_id)
+	{
+		$info = $this->findWhere(['contactinfo_id'=>$primary_id],['*']);
+		return $info;
+	}
+
+	/*
+	******************************************
+	*	Function make decision  		  	 *
+	*	 for save all whatsapp related with  *
+	*		 main settings 			      	 *
+	*	@param $primary_id 		 		  	 *
+	*	@param $data 		 		      	 *
+	******************************************
+	*/
+	public function progress($primary_id,$data)
+	{
+
+		$result = $this->index($primary_id);
+
+		if ($result->count() > 0) {
+			$delete_whatsapp =  $this->deletWhere('contactinfo_id',$primary_id);
+		}
+
+		$save = [];
+		foreach ($data['whatsapp'] as $key =>  $value) {
+            if($value != ''){
+               $save = $this->model->create([
+               	'contactinfo_id'=>$primary_id,
+               	'whatsapp'=>$value
+               ]);
+            }
+        }
+        return $save;
+	}
+
+
     /**
      * Specify Model class name
      *

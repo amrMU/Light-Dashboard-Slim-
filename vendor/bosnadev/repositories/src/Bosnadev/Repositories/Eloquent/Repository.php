@@ -120,6 +120,7 @@ abstract class Repository implements RepositoryInterface, CriteriaInterface
         return $this->model->create($data);
     }
 
+
     /**
      * save a model without massive assignment
      *

@@ -31,7 +31,6 @@ Route::group(['middleware' => 'auth'], function () {
 
 // start admin routing
 
-
 Route::get('/home', 'HomeController@index');
 Route::get('/login','Auth\LoginController@GetLogin');
 Route::post('/check','Auth\LoginController@postLogin');

@@ -59,7 +59,7 @@
             <div class="row row-sm mg-10">
                <label class="col-9 col-sm-8 col-xl-12 mg-10 control-label ">address</label>
                <div class="col-9 col-sm-8 col-xl-12">
-                <input type="text" name="description" class="form-control" placeholder="adress" value="<?php echo e(@$info->address); ?>" title="find" />
+                <input type="text" name="address" class="form-control" placeholder="adress" value="<?php echo e(@$info->address); ?>" title="find" />
               </div>
             </div>
 

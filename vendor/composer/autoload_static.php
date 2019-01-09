@@ -8,12 +8,9 @@ class ComposerStaticInita14304cabf7f98ea4b20f74022d223ae
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
-        'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
-        'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '023d27dca8066ef29e6739335ea73bad' => __DIR__ . '/..' . '/symfony/polyfill-php70/bootstrap.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
-        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '1d1b89d124cc9cb8219922c9d5569199' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
@@ -53,6 +50,7 @@ class ComposerStaticInita14304cabf7f98ea4b20f74022d223ae
             'Symfony\\Polyfill\\Php70\\' => 23,
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Polyfill\\Ctype\\' => 23,
+            'Symfony\\Contracts\\' => 18,
             'Symfony\\Component\\Yaml\\' => 23,
             'Symfony\\Component\\VarDumper\\' => 28,
             'Symfony\\Component\\Translation\\' => 30,
@@ -68,6 +66,7 @@ class ComposerStaticInita14304cabf7f98ea4b20f74022d223ae
             'Symfony\\Component\\Debug\\' => 24,
             'Symfony\\Component\\CssSelector\\' => 30,
             'Symfony\\Component\\Console\\' => 26,
+            'Sly\\' => 4,
         ),
         'R' => 
         array (
@@ -77,9 +76,7 @@ class ComposerStaticInita14304cabf7f98ea4b20f74022d223ae
         array (
             'Psr\\SimpleCache\\' => 16,
             'Psr\\Log\\' => 8,
-            'Psr\\Http\\Message\\' => 17,
             'Psr\\Container\\' => 14,
-            'Psr\\Cache\\' => 10,
         ),
         'M' => 
         array (
@@ -96,32 +93,11 @@ class ComposerStaticInita14304cabf7f98ea4b20f74022d223ae
         ),
         'G' => 
         array (
-            'GuzzleHttp\\Psr7\\' => 16,
-            'GuzzleHttp\\Promise\\' => 19,
-            'GuzzleHttp\\' => 11,
-            'Grpc\\Gcp\\' => 9,
-            'Grpc\\' => 5,
-            'Google\\Type\\' => 12,
-            'Google\\Rpc\\' => 11,
-            'Google\\Protobuf\\' => 16,
-            'Google\\LongRunning\\' => 19,
-            'Google\\Jison\\' => 13,
-            'Google\\Iam\\' => 11,
-            'Google\\Cloud\\Vision\\' => 20,
-            'Google\\Cloud\\Core\\' => 18,
-            'Google\\Cloud\\' => 13,
-            'Google\\Auth\\' => 12,
-            'Google\\Api\\' => 11,
-            'Google\\ApiCore\\' => 15,
             'GoogleMaps\\' => 11,
             'GeometryLibrary\\' => 16,
-            'GPBMetadata\\Google\\Protobuf\\' => 28,
-            'GPBMetadata\\Google\\Cloud\\Vision\\' => 32,
-            'GPBMetadata\\Google\\' => 19,
         ),
         'F' => 
         array (
-            'Firebase\\JWT\\' => 13,
             'Faker\\' => 6,
         ),
         'E' => 
@@ -217,6 +193,10 @@ class ComposerStaticInita14304cabf7f98ea4b20f74022d223ae
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
         ),
+        'Symfony\\Contracts\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/contracts',
+        ),
         'Symfony\\Component\\Yaml\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/yaml',
@@ -277,6 +257,10 @@ class ComposerStaticInita14304cabf7f98ea4b20f74022d223ae
         array (
             0 => __DIR__ . '/..' . '/symfony/console',
         ),
+        'Sly\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/sly/notification-pusher/src/Sly',
+        ),
         'Ramsey\\Uuid\\' => 
         array (
             0 => __DIR__ . '/..' . '/ramsey/uuid/src',
@@ -289,17 +273,9 @@ class ComposerStaticInita14304cabf7f98ea4b20f74022d223ae
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
         ),
-        'Psr\\Http\\Message\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-        ),
         'Psr\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
-        ),
-        'Psr\\Cache\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/psr/cache/src',
         ),
         'Monolog\\' => 
         array (
@@ -317,74 +293,6 @@ class ComposerStaticInita14304cabf7f98ea4b20f74022d223ae
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate',
         ),
-        'GuzzleHttp\\Psr7\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
-        ),
-        'GuzzleHttp\\Promise\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/guzzlehttp/promises/src',
-        ),
-        'GuzzleHttp\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
-        ),
-        'Grpc\\Gcp\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/google/grpc-gcp/src',
-        ),
-        'Grpc\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/grpc/grpc/src/lib',
-        ),
-        'Google\\Type\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/google/gax/src/Type',
-        ),
-        'Google\\Rpc\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/google/gax/src/Rpc',
-        ),
-        'Google\\Protobuf\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/google/protobuf/php/src/Google/Protobuf',
-        ),
-        'Google\\LongRunning\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/google/gax/src/LongRunning',
-        ),
-        'Google\\Jison\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/google/gax/src/Jison',
-        ),
-        'Google\\Iam\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/google/gax/src/Iam',
-        ),
-        'Google\\Cloud\\Vision\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/google/cloud-vision/src',
-        ),
-        'Google\\Cloud\\Core\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/google/cloud-core/src',
-        ),
-        'Google\\Cloud\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/google/gax/src/Cloud',
-        ),
-        'Google\\Auth\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/google/auth/src',
-        ),
-        'Google\\Api\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/google/gax/src/Api',
-        ),
-        'Google\\ApiCore\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/google/gax/src/ApiCore',
-        ),
         'GoogleMaps\\' => 
         array (
             0 => __DIR__ . '/..' . '/alexpechkarev/google-maps/src',
@@ -392,22 +300,6 @@ class ComposerStaticInita14304cabf7f98ea4b20f74022d223ae
         'GeometryLibrary\\' => 
         array (
             0 => __DIR__ . '/..' . '/alexpechkarev/geometry-library',
-        ),
-        'GPBMetadata\\Google\\Protobuf\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/google/protobuf/php/src/GPBMetadata/Google/Protobuf',
-        ),
-        'GPBMetadata\\Google\\Cloud\\Vision\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/google/cloud-vision/metadata',
-        ),
-        'GPBMetadata\\Google\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/google/gax/metadata',
-        ),
-        'Firebase\\JWT\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/firebase/php-jwt/src',
         ),
         'Faker\\' => 
         array (
@@ -452,8 +344,7 @@ class ComposerStaticInita14304cabf7f98ea4b20f74022d223ae
     );
 
     public static $fallbackDirsPsr4 = array (
-        0 => __DIR__ . '/..' . '/google/grpc-gcp/src/generated',
-        1 => __DIR__ . '/..' . '/nesbot/carbon/src',
+        0 => __DIR__ . '/..' . '/nesbot/carbon/src',
     );
 
     public static $prefixesPsr0 = array (
@@ -462,20 +353,6 @@ class ComposerStaticInita14304cabf7f98ea4b20f74022d223ae
             'URLify' => 
             array (
                 0 => __DIR__ . '/..' . '/jbroadway/urlify',
-            ),
-        ),
-        'S' => 
-        array (
-            'Sly' => 
-            array (
-                0 => __DIR__ . '/..' . '/sly/notification-pusher/src',
-            ),
-        ),
-        'R' => 
-        array (
-            'Rize\\UriTemplate' => 
-            array (
-                0 => __DIR__ . '/..' . '/rize/uri-template/src',
             ),
         ),
         'P' => 
