@@ -8,7 +8,7 @@ Slim It's a Awesome Dashboard Has Most Component To Use In Your Application	.. M
 
 All Mobile Applications & Web Application Have Standard Or Base Informations .. I've Collected  Data Shared In All This And Built It.
 
-##components:
+## components:
 
 ..* Authentication Model (Login - Logout - Forget password - Reset password)
 ..* General Settings

@@ -49,13 +49,11 @@ class ContactUSSettings extends Controller
 
     public function store(Request $request)
     {
-//        dd($this->setting->all()->count());
 
         $check_settings = $this->setting->all()->count();
         if ($check_settings > 0 ) {
             $get_settings = $this->setting->findByFirst(['*']);
             $update_settings =$this->setting->find($get_settings->id)->update($request->except(['phone','whatsapp']));
-//             dd($get_settings);
 
             if($request->has('phone')){
                 $this->phone->deletWhere('contactinfo_id',$get_settings->id);
@@ -81,7 +79,6 @@ class ContactUSSettings extends Controller
                 }
             }
         }
-//            dd($this->setting->findByFirst(['*']));
 
 
         }else{
