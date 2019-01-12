@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\ContactUsSetting,App\ContactInfoPhone,App\ContactInfoWhatsapp;
-use App\Repositories\SettingsRepositories as Setting;
-use App\Repositories\PhoneSettingsInfoRepositories as Phone;
-use App\Repositories\WhatsappSettingsInfoRepositories as Whatsapp;
+use App\Repositories\SettingsRepositories;
+use App\Repositories\PhoneSettingsInfoRepositories;
+use App\Repositories\WhatsappSettingsInfoRepositories;
 use Illuminate\Support\Facades\Input;
 
 use Mapper;
@@ -19,8 +19,11 @@ class ContactUSSettings extends Controller
     protected $phone;
     protected $whatsapp;
 
-    public function __construct(Setting $setting,Phone $phone,Whatsapp $whatsapp)
-    {
+    public function __construct(
+        SettingsRepositories $setting,
+        PhoneSettingsInfoRepositories $phone,
+        WhatsappSettingsInfoRepositories $whatsapp
+    ){
         $this->setting = $setting;
         $this->phone = $phone;
         $this->whatsapp = $whatsapp;

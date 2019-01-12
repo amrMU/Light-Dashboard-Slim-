@@ -18,9 +18,9 @@ class SettingsRepositories extends Repository
 {
 
     /*
-    *****************
-    * Count Check   *
-    *****************
+    * Count Check   
+    *
+    * @auther Amr Muhamed <amrmuhamed9@gmail.com>
     */
     public function check()
     {
@@ -28,11 +28,12 @@ class SettingsRepositories extends Repository
     }
 
     /*
-    ***************************
-    * Function make decision  *
-    * if create new or make   *
-    *       update  only      *
-    ***************************
+    *
+    * Function make decision  
+    * if create new or make   
+    * update only 
+    *
+    * @auther Amr Muhamed <amrmuhamed9@gmail.com>     
     */
     public function progress($data)
     {   
@@ -49,10 +50,11 @@ class SettingsRepositories extends Repository
     }
 
     /*
-    ***************************
-    * Function make order     *
-    *    to create new        *
-    ***************************
+    *
+    * Function make order     
+    * to create new  
+    *
+    * @auther Amr Muhamed <amrmuhamed9@gmail.com>           
     */
     public function store( $data)
     {
@@ -66,12 +68,13 @@ class SettingsRepositories extends Repository
     }
 
     /*
-    *****************************
-    *    Function make order    *
-    *    to update information  *
-    *    @Param $id             *
-    *    @Param $data =[]       *
-    *****************************
+    *
+    * Function make order    
+    * to update information  
+    * @Param $id             
+    * @Param $data =[]   
+    *
+    * @auther Amr Muhamed <amrmuhamed9@gmail.com>    
     */
     public function save($id,$data)
     {
@@ -86,23 +89,21 @@ class SettingsRepositories extends Repository
     }
 
     /*
-    ************
-    * Set Logo *
-    ************
+    *
+    * Set Logo 
+    *
+    * @auther Amr Muhamed <amrmuhamed9@gmail.com>   
     */
     public function logo($id,$file)
     {
         $time = time();
         $ext  =Input::file('logo')->getClientOriginalExtension();
         $fullname = $time . '.' . $ext;
-       $move =  Input::file('logo')->move(public_path() .'/uploads/images/logo', $fullname);
-        // dd($move);
+        $move =  Input::file('logo')->move(public_path() .'/uploads/images/logo', $fullname);
         $path ='/uploads/images/logo';
 
         $this->attributes['logo'] =$path.'/'.$fullname;
         $this->update(['logo'=>$this->attributes['logo']],$id,'id');
-        // dd($this->findByFirst(['*']));
-        // return "OK";
     }
     /**
      * Specify Model class name

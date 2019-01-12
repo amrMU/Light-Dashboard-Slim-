@@ -17,11 +17,11 @@ class PhoneSettingsInfoRepositories extends Repository
 {
 
 	/*
-	**********************
-	*	Get Phone with   *
-	*	 primary info    *
-	*	@param $id 		 *
-	**********************
+	* Get Phone with   
+	* primary info    
+	* @param $primary_id 		 
+	*
+	* @auther Amr Muhamed <amrmuhamed9@gmail.com>
 	*/
 	public function index($primary_id)
 	{
@@ -30,13 +30,13 @@ class PhoneSettingsInfoRepositories extends Repository
 	}
 
 	/*
-	***************************************
-	*	Function make decision  		  *
-	*	 for save all phone related with  *
-	*		 main settings 			      *
-	*	@param $primary_id 		 		  *
-	*	@param $data 		 		      *
-	***************************************
+	* Function make decision  		  
+	* for save all phone related with  
+	* main settings 			      
+	* @param $primary_id 		 		  
+	* @param $data 		 		      
+	*
+	* @auther Amr Muhamed <amrmuhamed9@gmail.com>
 	*/
 	public function progress($primary_id,$data)
 	{
