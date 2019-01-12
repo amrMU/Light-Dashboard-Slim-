@@ -35,7 +35,7 @@ class SettingsRepositories extends Repository
     *
     * @auther Amr Muhamed <amrmuhamed9@gmail.com>     
     **/
-    public function progress($data)
+    public function GetProgress($data)
     {   
         
         $count =  $this->check();
@@ -61,7 +61,7 @@ class SettingsRepositories extends Repository
 
         if (Input::hasFile('logo')) {
            $file = Input::hasFile('logo');
-           $upload = $this->logo($id,$file);
+           $upload = $this->setLogo($id,$file);
         }
         return $this->findByFirst(['*'])->with('whatsapp','phone');
     }
@@ -73,7 +73,8 @@ class SettingsRepositories extends Repository
     * @Param $id             
     * @Param $data =[]   
     *
-    * @auther Amr Muhamed <amrmuhamed9@gmail.com>    
+    * @auther Amr Muhamed <amrmuhamed9@gmail.com>
+    * @return $this->findByFirst
     **/
     public function save($id,$data)
     {
@@ -81,7 +82,7 @@ class SettingsRepositories extends Repository
 
         if (Input::hasFile('logo')) {
            $file = Input::file('logo');
-           $upload = $this->logo($id,$file);
+           $upload = $this->setLogo($id,$file);
         }
         return $this->findByFirst(['*'])->with('whatsapp','phone');
 
@@ -90,9 +91,9 @@ class SettingsRepositories extends Repository
     /**
     * Set Logo
     *
-    * @auther Amr Muhamed <amrmuhamed9@gmail.com>   
+    * @auther Amr Muhamed <amrmuhamed9@gmail.com>
     **/
-    public function logo($id,$file)
+    public function setLogo($id,$file)
     {
         $time = time();
         $ext  =Input::file('logo')->getClientOriginalExtension();

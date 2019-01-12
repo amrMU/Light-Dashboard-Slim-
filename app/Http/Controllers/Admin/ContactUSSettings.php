@@ -45,16 +45,16 @@ class ContactUSSettings extends Controller
     public function store(Request $request)
     {
 
-        $base  = $this->setting->progress($request->except(['phone','whatsapp','_token']));
+        $base  = $this->setting->GetProgress($request->except(['phone','whatsapp','_token']));
 
 
 
         if($request->has('phone')){
-            $phone = $this->phone->progress($this->setting->findByFirst(['*'])->id,$request->only(['phone'])) ;
+            $phone = $this->phone->GetProgress($this->setting->findByFirst(['*'])->id,$request->only(['phone'])) ;
         }
        
         if($request->has('whatsapp')){
-          $whatsapp = $this->whatsapp->progress($this->setting->findByFirst(['*'])->id,$request->only(['whatsapp'])) ;
+          $whatsapp = $this->whatsapp->GetProgress($this->setting->findByFirst(['*'])->id,$request->only(['whatsapp'])) ;
         }
 
     Session::flash('success',trans('home.message_success'));

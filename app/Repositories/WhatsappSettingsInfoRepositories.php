@@ -22,6 +22,7 @@ class WhatsappSettingsInfoRepositories  extends Repository
 	* @param $primary_id 		 
 	*
     ** @auther Amr Muhamed <amrmuhamed9@gmail.com>
+     * @return $info
 	*/
 	public function index($primary_id)
 	{
@@ -37,8 +38,9 @@ class WhatsappSettingsInfoRepositories  extends Repository
 	* @param $data 		 		      	 
 	*
     * @auther Amr Muhamed <amrmuhamed9@gmail.com>
-	**/
-	public function progress($primary_id,$data)
+    * @return $save
+    **/
+	public function GetProgress($primary_id,$data)
 	{
 		$result = $this->index($primary_id);
 		if ($result->count() > 0) {

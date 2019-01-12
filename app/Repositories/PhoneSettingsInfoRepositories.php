@@ -35,10 +35,10 @@ class PhoneSettingsInfoRepositories extends Repository
 	* main settings 			      
 	* @param $primary_id 		 		  
 	* @param $data 		 		      
-	*
+	* @return save
 	* @auther Amr Muhamed <amrmuhamed9@gmail.com>
 	**/
-	public function progress($primary_id,$data)
+	public function GetProgress($primary_id,$data)
 	{
 
 		$result = $this->index($primary_id);
