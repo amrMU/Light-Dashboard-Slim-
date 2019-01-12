@@ -17,24 +17,24 @@ use Illuminate\Support\Facades\Input;
 class SettingsRepositories extends Repository
 {
 
-    /*
+    /**
     * Count Check   
     *
     * @auther Amr Muhamed <amrmuhamed9@gmail.com>
-    */
+    **/
     public function check()
     {
       return $this->all()->count();
     }
 
-    /*
+    /**
     *
     * Function make decision  
     * if create new or make   
     * update only 
     *
     * @auther Amr Muhamed <amrmuhamed9@gmail.com>     
-    */
+    **/
     public function progress($data)
     {   
         
@@ -49,13 +49,12 @@ class SettingsRepositories extends Repository
        
     }
 
-    /*
-    *
-    * Function make order     
+    /**
+    * Function make order
     * to create new  
     *
     * @auther Amr Muhamed <amrmuhamed9@gmail.com>           
-    */
+    **/
     public function store( $data)
     {
         $info  = $this->create($data);
@@ -67,7 +66,7 @@ class SettingsRepositories extends Repository
         return $this->findByFirst(['*'])->with('whatsapp','phone');
     }
 
-    /*
+    /**
     *
     * Function make order    
     * to update information  
@@ -75,7 +74,7 @@ class SettingsRepositories extends Repository
     * @Param $data =[]   
     *
     * @auther Amr Muhamed <amrmuhamed9@gmail.com>    
-    */
+    **/
     public function save($id,$data)
     {
         $info  = $this->update($data,$id,'id');
@@ -88,12 +87,11 @@ class SettingsRepositories extends Repository
 
     }
 
-    /*
-    *
-    * Set Logo 
+    /**
+    * Set Logo
     *
     * @auther Amr Muhamed <amrmuhamed9@gmail.com>   
-    */
+    **/
     public function logo($id,$file)
     {
         $time = time();
@@ -109,7 +107,7 @@ class SettingsRepositories extends Repository
      * Specify Model class name
      *
      * @return mixed
-     */
+     **/
     public function model()
     {
         return "App\ContactUsSetting";

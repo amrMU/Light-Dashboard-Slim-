@@ -30,7 +30,10 @@ class ContactUSSettings extends Controller
     }
 
 
-
+    /**
+     *
+     * return view with base informations
+s     **/
     public function create()
     {
 
@@ -53,7 +56,6 @@ class ContactUSSettings extends Controller
         if($request->has('whatsapp')){
           $whatsapp = $this->whatsapp->progress($this->setting->findByFirst(['*'])->id,$request->only(['whatsapp'])) ;
         }
-
 
     Session::flash('success',trans('home.message_success'));
     return redirect()->back();

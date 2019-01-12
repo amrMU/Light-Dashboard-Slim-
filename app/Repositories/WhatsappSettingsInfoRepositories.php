@@ -16,12 +16,12 @@ use Bosnadev\Repositories\Eloquent\Repository;
 class WhatsappSettingsInfoRepositories  extends Repository
 {
 
-	/*
+	/**
 	* Get Phone with   
 	* primary info    
 	* @param $primary_id 		 
 	*
-    * @auther Amr Muhamed <amrmuhamed9@gmail.com>
+    ** @auther Amr Muhamed <amrmuhamed9@gmail.com>
 	*/
 	public function index($primary_id)
 	{
@@ -29,21 +29,18 @@ class WhatsappSettingsInfoRepositories  extends Repository
 		return $info;
 	}
 
-	/*
-	*
-	* Function make decision  		  	 
+	/**
+	* Function make decision
 	* for save all whatsapp related with  
 	* main settings 			      	 
 	* @param $primary_id 		 		  	 
 	* @param $data 		 		      	 
 	*
     * @auther Amr Muhamed <amrmuhamed9@gmail.com>
-	*/
+	**/
 	public function progress($primary_id,$data)
 	{
-
 		$result = $this->index($primary_id);
-
 		if ($result->count() > 0) {
 			$delete_whatsapp =  $this->deletWhere('contactinfo_id',$primary_id);
 		}
