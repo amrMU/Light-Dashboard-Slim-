@@ -33,7 +33,7 @@ class ContactUSSettings extends Controller
     /**
      *
      * return view with base informations
-s     **/
+     **/
     public function create()
     {
 
