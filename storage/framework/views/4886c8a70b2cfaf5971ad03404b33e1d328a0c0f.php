@@ -1,43 +1,43 @@
-@extends('admin.layout')
-@section('content')
+<?php $__env->startSection('content'); ?>
 <div class="slim-mainpanel">
   <div class="container">
     <div class="slim-pageheader">
       <ol class="breadcrumb slim-breadcrumb">
-        <li class="breadcrumb-item"><a href="{{ URL::to('/admin/admin') }}">Home</a></li>
-        <li class="breadcrumb-item"><a href="{{ URL::to('/admin/settings') }}">Settings</a></li>
+        <li class="breadcrumb-item"><a href="<?php echo e(URL::to('/admin/admin')); ?>">Home</a></li>
+        <li class="breadcrumb-item"><a href="<?php echo e(URL::to('/admin/settings')); ?>">Settings</a></li>
         <li class="breadcrumb-item active" aria-current="page">update Info</li>
       </ol>
       <h6 class="slim-pagetitle">Settings</h6>
     </div><!-- slim-pageheader -->
-    {!! Form::open(['method'=>'post','url'=>'admin/contact_us_settings','class'=>"form-horizontal" ,'role'=>"form",'files'=>'true']) !!}
+    <?php echo Form::open(['method'=>'post','url'=>'admin/contact_us_settings','class'=>"form-horizontal" ,'role'=>"form",'files'=>'true']); ?>
+
     <div class="slim-mainpanel">
         <div class="container">
           <div class="section-wrapper">
 
-            @if(Session::has('success'))
-            <div class="alert alert-success mg-b-0" role="alert">{{Session::get('success')}}</div>
-            @endif
-            @if (count($errors) > 0)
+            <?php if(Session::has('success')): ?>
+            <div class="alert alert-success mg-b-0" role="alert"><?php echo e(Session::get('success')); ?></div>
+            <?php endif; ?>
+            <?php if(count($errors) > 0): ?>
             <div class="alert alert-danger mg-b-0" role="alert">
              <ul>
-              @foreach ($errors->all() as $error)
-              <li>{{ $error }}</li>
-              @endforeach
+              <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+              <li><?php echo e($error); ?></li>
+              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </ul>
           </div>
-          @endif
+          <?php endif; ?>
           <div class="form-group mg-b-10">
          
               <div class="row row-sm ">
                 <div class="col-9 col-sm-8 col-xl-9 ">
                  <label class="col-9 col-sm-8 col-xl-9 mg-10 control-label ">Site Name</label>
                  <div class="col-12 col-sm-8 col-xl-12 pull-right">
-                   <input type="text" name="site_name" class="form-control input-lg" required placeholder="Site Name" value="{{@$info->site_name}}">
+                   <input type="text" name="site_name" class="form-control input-lg" required placeholder="Site Name" value="<?php echo e(@$info->site_name); ?>">
                  </div><!-- col-8 -->
                </div>
                <div class="col-3 col-sm-2 col-xl-3">
-                 <img src="{{ URL::To('/') }}{{@$info->logo}}" class="img-fluid rounded" alt="">
+                 <img src="<?php echo e(URL::To('/')); ?><?php echo e(@$info->logo); ?>" class="img-fluid rounded" alt="">
                </div><!-- Logo -->
             </div><!-- row -->
             
@@ -45,28 +45,28 @@
              <div class="row row-sm mg-10">
                <label class="col-9 col-sm-8 col-xl-12 mg-10 control-label ">Description</label>
               <div class="col-9 col-sm-8 col-xl-12 ">
-               <input type="text" name="description_ar"  class="form-control input-lg" required placeholder="description"  value="{{@$info->description_ar}}">
+               <input type="text" name="description_ar"  class="form-control input-lg" required placeholder="description"  value="<?php echo e(@$info->description_ar); ?>">
              </div><!-- col-8 -->
             </div><!-- row -->
             
             <div class="row row-sm mg-10">
                <label class="col-9 col-sm-8 col-xl-12 mg-10 control-label ">Email</label>
               <div class="col-9 col-sm-8 col-xl-12">
-               <input type="email" name="email" class="form-control input-lg" required placeholder="Email" value="{{@$info->email}}">
+               <input type="email" name="email" class="form-control input-lg" required placeholder="Email" value="<?php echo e(@$info->email); ?>">
              </div><!-- col-8 -->
             </div><!-- row -->
 
             <div class="row row-sm mg-10">
                <label class="col-9 col-sm-8 col-xl-12 mg-10 control-label ">address</label>
                <div class="col-9 col-sm-8 col-xl-12">
-                <input type="text" name="address" class="form-control" placeholder="adress" value="{{@$info->address}}" title="find" />
+                <input type="text" name="address" class="form-control" placeholder="adress" value="<?php echo e(@$info->address); ?>" title="find" />
               </div>
             </div>
 
              <div class="row row-sm mg-10">
                <label class="col-9 col-sm-8 col-xl-12 mg-10 control-label ">meta tags</label>
               <div class="col-9 col-sm-8 col-xl-12 ">
-               <input type="text" name="meta_tags" class="pull-right" data-role="tagsinput"  class="form-control input-lg" required placeholder=""  value="{{@$info->meta_tags}}">
+               <input type="text" name="meta_tags" class="pull-right" data-role="tagsinput"  class="form-control input-lg" required placeholder=""  value="<?php echo e(@$info->meta_tags); ?>">
              </div><!-- col-8 -->
             </div><!-- row -->
 
@@ -75,21 +75,21 @@
             <div class="row row-sm mg-10">
              <label class="col-9 col-sm-8 col-xl-12 mg-10 control-label ">Facebook Url</label>
              <div class="col-9 col-sm-8 col-xl-12">
-                <input type="text" name="fburl" class="form-control input-lg" required placeholder="Facebook Url" value="{{@$info->fburl}}">
+                <input type="text" name="fburl" class="form-control input-lg" required placeholder="Facebook Url" value="<?php echo e(@$info->fburl); ?>">
              </div><!-- col-8 -->
            </div><!-- row -->
 
            <div class="row row-sm mg-10">
              <label class="col-9 col-sm-8 col-xl-12 mg-10 control-label ">Twitter Url</label>
              <div class="col-9 col-sm-8 col-xl-12">
-                <input type="text" name="twitter_url" class="form-control input-lg" required placeholder="Twitter Url" value="{{@$info->twitter_url}}">
+                <input type="text" name="twitter_url" class="form-control input-lg" required placeholder="Twitter Url" value="<?php echo e(@$info->twitter_url); ?>">
              </div><!-- col-8 -->
            </div><!-- row -->
 
           <div class="row row-sm mg-10">
              <label class="col-9 col-sm-8 col-xl-12 mg-10 control-label ">Google Plus Url</label>
              <div class="col-9 col-sm-8 col-xl-12">
-                 <input type="text" name="google_url" class="form-control input-lg" required placeholder="Google Plus URl" value="{{@$info->google_url}}">
+                 <input type="text" name="google_url" class="form-control input-lg" required placeholder="Google Plus URl" value="<?php echo e(@$info->google_url); ?>">
              </div><!-- col-8 -->
            </div><!-- row -->
 
@@ -103,20 +103,20 @@
              <input type="text" name="whatsapp[]" class="form-control input-lg"  placeholder="whatsapp Numper" value="">
             </div>
            </div><!-- row -->
-            {{-- multi whatsapp --}}
+            
 
-            @if(isset($info))
-            @foreach($info->whatsapp as $whatsapp)
+            <?php if(isset($info)): ?>
+            <?php $__currentLoopData = $info->whatsapp; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $whatsapp): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
              <div class="row row-sm mg-10">
                <label class="col-9 col-sm-8 col-xl-12 mg-10">whatsapp</label>
                <a href="#" class="col-md-1 remove_field btn btn-danger pull-left ">-</a>
              <div class="col-md-11">
-               <input type="text" name="whatsapp[]" class="form-control input-lg"  placeholder="whatsapp Numper" value="{{ @$whatsapp->whatsapp }}">
+               <input type="text" name="whatsapp[]" class="form-control input-lg"  placeholder="whatsapp Numper" value="<?php echo e(@$whatsapp->whatsapp); ?>">
              </div>
            </div><!-- row -->
-           @endforeach
-           @endif
-          {{-- multi whatsapp --}}
+           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+           <?php endif; ?>
+          
            </div><!--input_wrap_whatsapp-->
 
             <div class="input_wrap_phone ">
@@ -129,20 +129,20 @@
              <input type="text" name="phone[]" class="form-control input-lg"  placeholder="phone Numper" value="">
             </div>
            </div><!-- row -->
-            {{-- multi phone --}}
+            
            
-            @if(isset($info))
-            @foreach($info->phone as $phone)
+            <?php if(isset($info)): ?>
+            <?php $__currentLoopData = $info->phone; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $phone): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
              <div class="row row-sm mg-10">
                 <label class="col-9 col-sm-8 col-xl-12 mg-10">phone</label>
                 <a href="#" class="col-md-1 remove_field btn btn-danger pull-left ">-</a>
              <div class="col-md-11">
-               <input type="text" name="phone[]" class="form-control input-lg"  placeholder="phone Numper" value="{{ @$phone->phone }}">
+               <input type="text" name="phone[]" class="form-control input-lg"  placeholder="phone Numper" value="<?php echo e(@$phone->phone); ?>">
              </div>
            </div><!-- row -->
-           @endforeach
-           @endif
-          {{-- multi phone --}}
+           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+           <?php endif; ?>
+          
            </div><!--input_wrap_whatsapp-->
         
            <div class="row row-sm">
@@ -168,12 +168,12 @@
       </div>
     </div>
   </div>
-    {!! Form::close() !!} 
+    <?php echo Form::close(); ?> 
 </div>
 </div>
 <!-- END SAMPLE FORM PORTLET-->
-@stop
-@section('jsCode')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('jsCode'); ?>
 
 <script>
  var wrapper = $(".input_wrap_whatsapp>div");
@@ -200,4 +200,5 @@
 
 
     </script>
-    @stop
+    <?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

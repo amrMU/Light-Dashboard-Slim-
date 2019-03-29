@@ -4,95 +4,60 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Mapper;
 use App\ContactUsSetting,App\ContactInfoPhone,App\ContactInfoWhatsapp;
+use App\Repositories\SettingsRepositories;
+use App\Repositories\PhoneSettingsInfoRepositories;
+use App\Repositories\WhatsappSettingsInfoRepositories;
+use Illuminate\Support\Facades\Input;
+
+use Mapper;
 use Session;
 
 class ContactUSSettings extends Controller
 {
-    public function show()
-    {
-        $check_settings = ContactUsSetting::count();
+    protected $setting;
+    protected $phone;
+    protected $whatsapp;
 
-        if ($check_settings >0) {
-            $info = ContactUsSetting::with(['whatsapp','phone'])->first();
-
-            $mape = Mapper::map($info->long,$info->lat, ['eventBeforeLoad' => 'console.log("before load");']);
-        }
-
-        return view('admin.contact_us.map',compact('mape','info'));
+    public function __construct(
+        SettingsRepositories $setting,
+        PhoneSettingsInfoRepositories $phone,
+        WhatsappSettingsInfoRepositories $whatsapp
+    ){
+        $this->setting = $setting;
+        $this->phone = $phone;
+        $this->whatsapp = $whatsapp;
     }
 
 
+    /**
+     *
+     * return view with base informations
+     **/
     public function create()
     {
 
-        $info = ContactUsSetting::with(['whatsapp','phone'])->first();
+        $info = $this->setting->with(['whatsapp','phone'])->findByFirst(['*']);
 
         return view('admin.contact_us.setting',compact('mape','info'));
     }
 
     public function store(Request $request)
     {
-        $check_settings = ContactUsSetting::count();
-        if ($check_settings > 0 ) {
-            $get_settings = ContactUsSetting::first();
-            $update_settings = ContactUsSetting::find($get_settings->id)->update($request->except(['phone','whatsapp']));
-            // dd($get_settings->id);
 
-            if($request->has('phone')){
-                ContactInfoPhone::where('contactinfo_id',$get_settings->id)->delete();
-                foreach ($request->phone as $key => $phone) {
-                    if($phone != ''){
-                        ContactInfoPhone::create([
-                            'phone'=>$phone,
-                            'contactinfo_id'=>$get_settings->id
-                            ]);
-                    }
-                }
+        $base  = $this->setting->GetProgress($request->except(['phone','whatsapp','_token']));
 
-            }
-            if($request->has('whatsapp')){
-                ContactInfoWhatsapp::where('contactinfo_id',$get_settings->id)->delete();
 
-                foreach ($request->whatsapp as $key => $whatsapp) {
-                 if($whatsapp != ''){
-                    ContactInfoWhatsapp::create([
-                        'whatsapp'=>$whatsapp,
-                        'contactinfo_id'=>$get_settings->id
-                        ]);
-                }
-            }
-        }
 
-    }else{
-       
-        $create_settings = ContactUsSetting::create($request->except(['phone','whatsapp']));
         if($request->has('phone')){
-            foreach ($request->phone as $key => $phone) {
-                ContactInfoPhone::create([
-                    'phone'=>$phone,
-                    'contactinfo_id'=>$create_settings->id
-                    ]);
-            }
-
+            $phone = $this->phone->GetProgress($this->setting->findByFirst(['*'])->id,$request->only(['phone'])) ;
         }
-        
+       
         if($request->has('whatsapp')){
-                ContactInfoWhatsapp::where('contactinfo_id',$create_settings->id)->delete();
-
-                foreach ($request->whatsapp as $key => $whatsapp) {
-                 if($whatsapp != ''){
-                    ContactInfoWhatsapp::create([
-                        'whatsapp'=>$whatsapp,
-                        'contactinfo_id'=>$get_settings->id
-                        ]);
-                }
-            }
+          $whatsapp = $this->whatsapp->GetProgress($this->setting->findByFirst(['*'])->id,$request->only(['whatsapp'])) ;
         }
 
-    }
-    Session::flash('success','تم تحديث البيانات بنجاح!');
+    Session::flash('success',trans('home.message_success'));
     return redirect()->back();
 }
 
